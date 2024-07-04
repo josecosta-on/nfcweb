@@ -4,13 +4,13 @@ import { NfcService } from "./nfc.service";
 @Component({
   selector: 'app-nfc',
   template: `
-      <div #scanNfcButton id="scanNfcButton"></div>
+      <div #scanNfcButton id="scanNfcButton" (click)="nfcService.setup()"></div>
   `
 })
 export class NfcComponent
   implements  AfterViewInit, OnDestroy
 {
-  constructor (private readonly nfcService:NfcService){}
+  constructor (public nfcService:NfcService){}
   
   public ngOnInit(): void {
     

@@ -8,9 +8,14 @@ declare var document
   providedIn: 'root',
 })
 export class NfcService {
-   
-    async startScan(){
-        document.querySelector("#scanNfcButton").onclick = async () => {
+
+    constructor(){
+       
+    }
+
+    async setup(){
+        
+        
             try {
                 const ndef = new NDEFReader();
                 window['ndef'] = ndef
@@ -28,7 +33,19 @@ export class NfcService {
             } catch (error) {
                 console.log("Argh! " + error);
             }
-        }
+        
+    }
+   
+    async startScan(){
+
+        // Get a reference to the element you want to click
+        var element = document.getElementById("scanNfcButton");
+        // Create a new click event
+        var clickEvent = new Event('click');
+        // Dispatch the click event on the element
+        element.dispatchEvent(clickEvent);
+
+        
     }
 
 
