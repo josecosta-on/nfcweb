@@ -75,7 +75,7 @@ export class LayoutService {
     menuItems = [
       {
         title: 'Home',
-        url: '/dashboard',
+        url: '/',
         icon: 'home' // Use Ionic icon names here
       },
       {

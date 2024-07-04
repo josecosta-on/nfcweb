@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 const Routing: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
   },
   {
@@ -53,7 +53,7 @@ const Routing: Routes = [
   
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/',
     pathMatch: 'full',
   },
   {
