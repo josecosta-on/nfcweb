@@ -1,0 +1,168 @@
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "password": "demo",
+        "email": "admin@demo.com",
+        "authToken": "auth-token-8f3ae836da744329a6f93bf20594b5cc",
+        "refreshToken": "auth-token-f8c137a2c98743f48b643e71161d90aa",
+        "roles": [1], 
+        "pic": "./assets/media/avatars/300-1.jpg",
+        "fullname": "Sean S",
+        "firstname": "Sean",
+        "lastname": "Stark",
+        "occupation": "CEO",
+        "companyName": "Keenthemes",
+        "phone": "456669067890",
+        "language": "en",
+        "timeZone": "International Date Line West",
+        "website": "https://keenthemes.com",
+        "communication": {
+          "email": true,
+          "sms": true,
+          "phone": false
+        },
+        "address": {
+          "addressLine": "L-12-20 Vertex, Cybersquare",
+          "city": "San Francisco",
+          "state": "California",
+          "postCode": "45000"
+        },
+        "socialNetworks": {
+          "linkedIn": "https://linkedin.com/admin",
+          "facebook": "https://facebook.com/admin",
+          "twitter": "https://twitter.com/admin",
+          "instagram": "https://instagram.com/admin"
+        }
+    },
+    {
+        "id": 79,
+        "name": "umar farooq",
+        "email": "muhammadumar1358@gmail.com",
+        "email_verified_at": "2024-04-06T11:00:45.000000Z",
+        "avatar": null,
+        "created_at": "2024-04-06T11:00:45.000000Z",
+        "updated_at": "2024-04-06T11:00:45.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 97,
+        "name": "Rensi Baldha",
+        "email": "rb.kunjservices@gmail.com",
+        "email_verified_at": "2024-04-12T06:16:17.000000Z",
+        "avatar": null,
+        "created_at": "2024-04-12T06:16:17.000000Z",
+        "updated_at": "2024-04-12T06:16:17.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 235,
+        "name": "testttt",
+        "email": "dddd@hidemail.app",
+        "email_verified_at": null,
+        "avatar": null,
+        "created_at": "2024-05-07T02:12:11.000000Z",
+        "updated_at": "2024-05-07T12:57:38.000000Z",
+        "last_login_at": "2024-05-07T02:12:11.000000Z",
+        "last_login_ip": "159.146.38.188",
+        "profile_photo_path": null,
+        "roles": [
+            {
+                "id": 10,
+                "name": "ODNZ",
+                "guard_name": "web",
+                "created_at": "2024-04-04T06:22:38.000000Z",
+                "updated_at": "2024-04-08T12:02:46.000000Z",
+                "pivot": {
+                    "model_type": "App\\Models\\User",
+                    "model_id": 235,
+                    "role_id": 10
+                }
+            }
+        ]
+    },
+    {
+        "id": 236,
+        "name": "test",
+        "email": "curzidirko@tozya.com",
+        "email_verified_at": null,
+        "avatar": null,
+        "created_at": "2024-05-07T02:14:51.000000Z",
+        "updated_at": "2024-05-07T02:14:51.000000Z",
+        "last_login_at": "2024-05-07T02:14:51.000000Z",
+        "last_login_ip": "159.146.38.188",
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 238,
+        "name": "Yunus Emre I\u015f\u0131k",
+        "email": "ynsmrsk13@gmail.com",
+        "email_verified_at": "2024-05-07T02:18:50.000000Z",
+        "avatar": null,
+        "created_at": "2024-05-07T02:18:50.000000Z",
+        "updated_at": "2024-05-07T02:18:50.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 248,
+        "name": "tester",
+        "email": "test@vizypay.com",
+        "email_verified_at": null,
+        "avatar": null,
+        "created_at": "2024-05-07T15:24:36.000000Z",
+        "updated_at": "2024-05-31T21:11:15.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 295,
+        "name": "Suman Rai",
+        "email": "srai@himalayantechies.com",
+        "email_verified_at": "2024-05-13T09:41:46.000000Z",
+        "avatar": null,
+        "created_at": "2024-05-13T09:41:46.000000Z",
+        "updated_at": "2024-05-13T09:41:46.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 299,
+        "name": "test",
+        "email": "te@asdas.asd",
+        "email_verified_at": null,
+        "avatar": null,
+        "created_at": "2024-05-15T19:47:47.000000Z",
+        "updated_at": "2024-05-15T19:47:47.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    },
+    {
+        "id": 370,
+        "name": "Triaez",
+        "email": "avkhunt007@gmail.com",
+        "email_verified_at": null,
+        "avatar": null,
+        "created_at": "2024-05-24T06:45:42.000000Z",
+        "updated_at": "2024-05-24T06:45:42.000000Z",
+        "last_login_at": null,
+        "last_login_ip": null,
+        "profile_photo_path": null,
+        "roles": []
+    }
+]

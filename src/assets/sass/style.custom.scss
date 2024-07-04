@@ -1,0 +1,71 @@
+.item-center{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+   
+}
+.item-center > ion-item{
+    width: fit-content;
+}
+
+form.flex-box{  
+    ion-item:not(.item-menu){
+        font-size: 22px;
+        // margin-top: 16px;
+        // --background: #8a8b8d80;
+        border: 1px solid #363843 !important;
+        border-radius: 8px;
+    }
+}
+
+
+ion-footer.no-border{
+   
+        box-shadow: none; /* Removes the shadow */
+     
+      /* Optional: If you want to keep the border */
+     &::before {
+        display: none; /* Hides the element that creates the top border */
+      }
+}
+
+form.flex-box{
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    img.logo{
+        height: 30vh;
+        display: block;
+    }
+    > swiper-container,
+    > .box{
+        height: 70vh;
+        display: block;
+        width: 100%;
+    }
+}
+
+/**
+  * Barcode Scanning
+  * -------------------------------------------
+  */
+  body.barcode-scanning-active {
+    visibility: hidden;
+    background: transparent;
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+  
+  .barcode-scanning-modal {
+    visibility: visible;
+  }
+  
+.barcode-scanning-modal {
+    --background: transparent;
+    --ion-background-color: transparent;
+}
+
+  

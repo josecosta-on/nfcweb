@@ -1,0 +1,24 @@
+<form class="flex-box" [@slideAnimate]="slideState">
+  <img class="logo" src="/assets/imgs/logo.svg" alt="360 City" />
+  <div class="box">
+    <div class="info">
+      <ion-list class="ion-padding-horizontal" lines="none">
+        <h1>{{'Definir localização'|translate}}</h1>
+        <p>{{'Definir a localização de utilização permite que posso retirar estatisticas por localização'|translate}}
+        </p>
+      
+       
+            <ion-item button (click)="open()" >
+              <div slot="end">{{ selectedZonesText }}</div>
+            </ion-item>
+      </ion-list>
+    </div>
+    <ion-footer class="ion-padding no-border" style="position: fixed;bottom:0" >
+      <ion-item class="item-center" button (click)="next()">
+        <ion-label class="ion-text-center">
+          {{'Seguinte 2'|translate}}
+        </ion-label>
+      </ion-item>
+    </ion-footer>
+  </div>
+</form>

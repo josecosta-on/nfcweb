@@ -1,0 +1,32 @@
+ 
+<ion-menu contentId="main-content">
+    <ion-header>
+        <ion-toolbar>
+        <ion-title>Menu Content</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content >
+        <ion-list>
+            <ion-item button class="item-menu" (click)="navigate(item)" *ngFor="let item of layout.menuItems">
+                <ion-icon name="{{ item.icon }}"></ion-icon>
+                <ion-label class="ion-padding-start">{{ item.title }}</ion-label>
+              
+            </ion-item>
+        </ion-list>
+       
+      
+    </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content     [fullscreen]="true">
+        <router-outlet></router-outlet>
+    </ion-content>
+</div>

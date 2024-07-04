@@ -1,0 +1,18 @@
+<form class="flex-box" [@slideAnimate]="slideState">
+  <img class="logo" src="/assets/imgs/logo.svg" alt="360 City" />
+  <div class="box">
+    <ion-list class="ion-padding-horizontal" lines="none">
+      <div class="info">
+          <h1>{{'Concluído'|translate}}</h1>
+          <p>{{'Qualquer alteração posterior poderá ser realizada através do menu lateral'|translate}}</p>
+      </div>
+    </ion-list>
+    <ion-footer class="ion-padding no-border" style="position: fixed;bottom:0" >
+      <ion-item class="item-center" button (click)="next()">
+        <ion-label class="ion-text-center">
+          {{'Concluir'|translate}}
+        </ion-label>
+      </ion-item>
+    </ion-footer>
+  </div>
+</form>
