@@ -1,7 +1,9 @@
 <ion-header>
 	<ion-toolbar>
 		<ion-buttons slot="start">
-			<ion-back-button icon="arrow-back-outline" defaultHref="/"></ion-back-button>
+			<ion-button (click)="closeModal()" >
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
 		</ion-buttons>
 		<ion-title>{{'Ler QR Code' | translate}}</ion-title>
 	</ion-toolbar>

@@ -21,14 +21,14 @@ import { InputCustomEvent } from '@ionic/angular';
 @Component({
   selector: 'app-barcode-scanning',
   template: `
-    <ion-header style="background:white">
+    <ion-header>
       <ion-toolbar>
-        <ion-title>Scanning</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="closeModal()">
-            <ion-icon name="close"></ion-icon>
+        <ion-buttons slot="start">
+          <ion-button (click)="closeModal()" >
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
+        <ion-title>{{'Ler QR Code'}}</ion-title>
       </ion-toolbar>
     </ion-header>
 

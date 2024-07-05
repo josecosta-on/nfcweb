@@ -49,9 +49,7 @@ export class ScanComponent {
       console.log("e:",e)
       const v = e[0].value;
 			action.stop();
-      this.dialogService.dismissModal({
-        barcode: {rawValue:v},
-      });
+      this.closeModal({rawValue:v})
     
 		}
 	}
@@ -70,4 +68,11 @@ export class ScanComponent {
 			action[fn]().subscribe((r: any) => console.log(fn, r), alert);
 		}
 	}
+
+  public async closeModal(barcode?: any): Promise<void> {
+    this.dialogService.dismissModal({
+      barcode: barcode,
+    });
+  }
+
 }
