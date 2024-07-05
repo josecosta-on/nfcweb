@@ -11,6 +11,7 @@ import {
 import { FilePicker } from '@capawesome/capacitor-file-picker';
 import { BarcodeScanningModalComponent } from '@app/core/plugins/reader/components/barcode-scanning/barcode-scanning-modal.component';
 import { EventsService } from '@app/services/events.service';
+import { ScanComponent } from './components/scan/scan.component';
 
 
 @Injectable({
@@ -68,7 +69,7 @@ export class BarcodeService {
       const lensFacing =
         this.formGroup.get('lensFacing')?.value || LensFacing.Back;
         const element = await this.dialogService.showModal({
-            component: BarcodeScanningModalComponent,
+            component: ScanComponent,
             // Set `visibility` to `visible` to show the modal (see `src/theme/variables.scss`)
             cssClass: 'barcode-scanning-modal',
             showBackdrop: false,

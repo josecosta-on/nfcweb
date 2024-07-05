@@ -1,0 +1,18 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button icon="arrow-back-outline" defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{'Ler QR Code' | translate}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="video-frame">
+		<ngx-scanner-qrcode #action [config]="config" (event)="onEvent($event, action)"></ngx-scanner-qrcode>
+
+		<div *ngIf="action.isStart" class="overlay-description">
+			<div class="description" *ngIf="description">{{ description }}</div>
+		</div>
+	</div>
+</ion-content>

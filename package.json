@@ -44,6 +44,7 @@
     "crypto-js": "^4.2.0",
     "ionicons": "^7.0.0",
     "ngx-clipboard": "^16.0.0",
+    "ngx-scanner-qrcode": "^1.6.9",
     "object-path": "^0.11.8",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
