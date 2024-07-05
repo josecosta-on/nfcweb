@@ -82,7 +82,7 @@ export class ReaderComponent  implements OnInit {
         this.ngZone.run(()=>{
           this.counter ++
         })
-        return
+        return undefined
       }
     }
 
