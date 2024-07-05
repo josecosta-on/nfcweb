@@ -22,7 +22,7 @@ export class ReaderComponent  implements OnInit {
   nfc: any;
   barcode: any;
 
-	repited: number = 1;
+	counter: number = 1;
 
 
   @Output() read = new EventEmitter<any>();
@@ -51,7 +51,7 @@ export class ReaderComponent  implements OnInit {
     if(value && this.lastChange && this.md5Value == md5){
       const diffInSec = (new Date().getTime() - this.lastChange) / 1000;
       if (diffInSec <= 10){
-        this.repited ++
+        this.counter ++
         return
       }
     }
