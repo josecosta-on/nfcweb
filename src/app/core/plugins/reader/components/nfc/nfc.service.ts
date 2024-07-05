@@ -43,10 +43,10 @@ export class NfcService {
     }
    
     toHexString (str) {
-        const characters = str.split(':');
+        const characters = str.trim().split(':');
         characters.reverse();
         const reversedString = characters.join('');
-        return reversedString;
+        return reversedString.toUpperCase();
 	}
 
     async startScan(){

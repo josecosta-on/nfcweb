@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BarcodeService } from '@app/core';
 import { BasePage } from '@app/core/layout/base/base.page';
 import { NfcService } from '@app/core/plugins/reader/components/nfc/nfc.service';
+import { ReaderComponent } from '@app/core/plugins/reader/reader.component';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { NfcService } from '@app/core/plugins/reader/components/nfc/nfc.service'
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage extends BasePage implements OnInit {
+  @ViewChild('reader') reader: ReaderComponent | undefined;
 
   constructor(
     private readonly barcodeService: BarcodeService,
@@ -33,6 +35,7 @@ export class DashboardPage extends BasePage implements OnInit {
 
   async read(event){
     console.log(event)
+    console.log(this.reader?.value)
   }
 
   async scanQRCode(){
