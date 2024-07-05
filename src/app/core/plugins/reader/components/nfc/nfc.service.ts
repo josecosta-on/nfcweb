@@ -10,6 +10,9 @@ declare var document
   providedIn: 'root',
 })
 export class NfcService {
+    private BEEP = `data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI5LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAABQAAAkAAgICAgICAgICAgICAgICAgICAgKCgoKCgoKCgoKCgoKCgoKCgoKCgwMDAwMDAwMDAwMDAwMDAwMDAwMDg4ODg4ODg4ODg4ODg4ODg4ODg4P//////////////////////////AAAAAExhdmM1OC41NAAAAAAAAAAAAAAAACQEUQAAAAAAAAJAk0uXRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+MYxAANQAbGeUEQAAHZYZ3fASqD4P5TKBgocg+Bw/8+CAYBA4XB9/4EBAEP4nB9+UOf/6gfUCAIKyjgQ/Kf//wfswAAAwQA/+MYxAYOqrbdkZGQAMA7DJLCsQxNOij///////////+tv///3RWiZGBEhsf/FO/+LoCSFs1dFVS/g8f/4Mhv0nhqAieHleLy/+MYxAYOOrbMAY2gABf/////////////////usPJ66R0wI4boY9/8jQYg//g2SPx1M0N3Z0kVJLIs///Uw4aMyvHJJYmPBYG/+MYxAgPMALBucAQAoGgaBoFQVBUFQWDv6gZBUFQVBUGgaBr5YSgqCoKhIGg7+IQVBUFQVBoGga//SsFSoKnf/iVTEFNRTMu/+MYxAYAAANIAAAAADEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV`;
+
+
 
     constructor(private readonly eventsServices:EventsService){
        
@@ -29,6 +32,7 @@ export class NfcService {
                 });
             
                 ndef.addEventListener("reading", ({ message, serialNumber }) => {
+                this.audio()
                 this.eventsServices.publish('intent-read',{
                     type:'nfc',
                     value:this.toHexString(serialNumber)
@@ -40,6 +44,21 @@ export class NfcService {
                 console.log("Argh! " + error);
             }
         
+    }
+
+    audio(){
+        let audio = new Audio(this.BEEP);
+        // when the sound has been loaded, execute your code
+        audio.oncanplaythrough = () => {
+            const promise = audio.play();
+            if (promise) {
+                promise.catch((e) => {
+                    if (e.name === "NotAllowedError" || e.name === "NotSupportedError") {
+                        // console.log(e.name);
+                    }
+                });
+            }
+        };
     }
    
     toHexString (str) {
