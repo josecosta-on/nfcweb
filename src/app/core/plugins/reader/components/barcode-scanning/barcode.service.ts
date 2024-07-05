@@ -49,7 +49,7 @@ export class BarcodeService {
 
         const char = String.fromCharCode(e.which || e.keyCode);
         const isAllowed = this.allowedCharsRegex.test(char);
-
+        console.log("e::",e,isAllowed)
         if ( !isAllowed) {
           return
         }
