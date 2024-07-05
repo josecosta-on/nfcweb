@@ -34,6 +34,8 @@ export class BarcodeService {
    
     word: string = '';
     listenScan:boolean = true;
+    allowedCharsRegex = /^[a-zA-Z0-9!@#$%&*()_+\-=\[\]{};':",./\\|<>? ]+$/;
+
   
     constructor(
       private readonly dialogService: DialogService,
@@ -44,6 +46,14 @@ export class BarcodeService {
         if(!this.listenScan){
             return
         }
+
+        const char = String.fromCharCode(e.which || e.keyCode);
+        const isAllowed = this.allowedCharsRegex.test(char);
+
+        if ( !isAllowed) {
+          return
+        }
+
         if (e.key === 'Enter') {
           console.log(this.word)
           
@@ -54,7 +64,7 @@ export class BarcodeService {
           this.word=""
           return 
         }
-        this.word = this.word + e.key 
+        this.word = this.word + char
         return
       });
     }
