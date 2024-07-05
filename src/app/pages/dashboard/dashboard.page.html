@@ -1,6 +1,6 @@
 <ion-card>
   <app-nfc></app-nfc>
-  <app-reader #read (read)="read($event)"></app-reader>
+  <app-reader #reader (read)="read($event)"></app-reader>
   <ion-card-content class="ion-no-padding">
       <ion-item button (click)="clear()">
         <ion-icon name="trash" size="large" slot="end">
