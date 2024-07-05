@@ -61,6 +61,7 @@ export class ReaderComponent  implements OnInit {
     this.md5Value = md5
     this.ngZone.run(()=>{
       this.clear()
+      this.counter ++
       this[value.type] = value
     })
     return value
