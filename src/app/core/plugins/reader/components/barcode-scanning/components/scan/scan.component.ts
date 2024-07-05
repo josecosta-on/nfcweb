@@ -36,6 +36,9 @@ export class ScanComponent {
 
 	ngAfterViewInit() {
 		this.action.isReady.subscribe(async (res: any) => {
+			let el:any = document.querySelector(".video-frame")
+			el.style.overflow="hidden"
+			el.style.height="100%"
 			this.handle(this.action, 'start');
 		});
 	}
