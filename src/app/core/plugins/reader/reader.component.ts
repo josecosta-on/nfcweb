@@ -6,7 +6,7 @@ import CryptoJS from 'crypto-js';
 interface IRead{
   type:string,
   barcode?:Barcode,
-  nfc
+  nfc?:any
 }
 
 @Component({
@@ -18,6 +18,9 @@ export class ReaderComponent  implements OnInit {
 
   private md5Value: any;
   value: any;
+  nfc: any;
+  barcode: any;
+
 	repited: number = 1;
 
 
@@ -50,7 +53,7 @@ export class ReaderComponent  implements OnInit {
 
     this.lastChange = new Date().getTime()			
     this.md5Value = md5
-    this.value = value
+    this[value.type] = value
     return value
   }
 

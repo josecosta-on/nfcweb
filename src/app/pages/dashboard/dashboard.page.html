@@ -16,7 +16,7 @@
         </ion-icon>
         <ion-label>
           Código QR
-          <p>Ler código</p>
+          <p >{{reader?.barcode?.value || 'Ler Código'}}</p>
         </ion-label>
       </ion-item>
       <ion-item button (click)="scanNfc()">
@@ -24,7 +24,7 @@
         </ion-icon>
         <ion-label>
           Código Nfc
-          <p>Ler código</p>
+          <p>{{reader?.nfc?.value || 'Ler Código'}}</p>
         </ion-label>
       </ion-item>
 
