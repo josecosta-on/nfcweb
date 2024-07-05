@@ -27,7 +27,8 @@ export class ScanComponent {
 				facingMode: 'environment' // or "environment" for the back camera
 			},
 			audio: false
-		}
+		},
+		isBeep:false
 	};
 
   constructor(
