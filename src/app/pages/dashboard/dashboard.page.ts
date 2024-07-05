@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeService } from '@app/core';
 import { BasePage } from '@app/core/layout/base/base.page';
-import { NfcService } from '@app/core/plugins/nfc/nfc.service';
+import { NfcService } from '@app/core/plugins/reader/components/nfc/nfc.service';
 
 
 @Component({
@@ -29,6 +29,10 @@ export class DashboardPage extends BasePage implements OnInit {
 
   clear(){
     alert("clear")
+  }
+
+  async read(event){
+    console.log(event)
   }
 
   async scanQRCode(){

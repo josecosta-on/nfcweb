@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
-import { NfcComponent } from '@app/core/plugins/nfc/nfc.component';
+import { NfcComponent } from '@app/core/plugins/reader/components/nfc/nfc.component';
+import { ReaderComponent } from '@app/core/plugins/reader/reader.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { NfcComponent } from '@app/core/plugins/nfc/nfc.component';
     IonicModule,
     DashboardPageRoutingModule
   ],
-  declarations: [DashboardPage,NfcComponent]
+  declarations: [DashboardPage,NfcComponent,ReaderComponent]
 })
 export class DashboardPageModule {}

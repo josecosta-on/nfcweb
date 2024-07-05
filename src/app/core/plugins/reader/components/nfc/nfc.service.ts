@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { EventsService } from '@app/services/events.service';
+import { NfcUtil } from '@awesome-cordova-plugins/nfc';
 
 declare var NDEFReader
 declare var document
@@ -9,7 +11,7 @@ declare var document
 })
 export class NfcService {
 
-    constructor(){
+    constructor(private readonly eventsServices:EventsService){
        
     }
 
@@ -27,6 +29,10 @@ export class NfcService {
                 });
             
                 ndef.addEventListener("reading", ({ message, serialNumber }) => {
+                this.eventsServices.publish('intent-read',{
+                    type:'nfc',
+                    nfc:{number:this.toHexString(serialNumber)}
+                })
                 console.log(`> Serial Number: ${serialNumber}`);
                 console.log(`> Records: (${message.records.length})`);
                 });
@@ -36,6 +42,13 @@ export class NfcService {
         
     }
    
+    async toHexString (str) {
+        const characters = str.split(':');
+        characters.reverse();
+        const reversedString = characters.join(':');
+        return reversedString;
+	}
+
     async startScan(){
 
         // Get a reference to the element you want to click

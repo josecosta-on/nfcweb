@@ -7,7 +7,7 @@ const Routing: Routes = [
   },
   {
     path: 'scan',
-    loadChildren: () => import('../core/plugins/barcode-scanning/barcode-scanning.module').then((m) => m.BarcodeScanningModule),
+    loadChildren: () => import('../core/plugins/reader/components/barcode-scanning/barcode-scanning.module').then((m) => m.BarcodeScanningModule),
   },
   {
     path: 'info',

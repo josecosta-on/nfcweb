@@ -9,7 +9,8 @@ import {
   LensFacing,
 } from '@capacitor-mlkit/barcode-scanning';
 import { FilePicker } from '@capawesome/capacitor-file-picker';
-import { BarcodeScanningModalComponent } from '@app/core/plugins/barcode-scanning/barcode-scanning-modal.component';
+import { BarcodeScanningModalComponent } from '@app/core/plugins/reader/components/barcode-scanning/barcode-scanning-modal.component';
+import { EventsService } from '@app/services/events.service';
 
 
 @Injectable({
@@ -35,6 +36,7 @@ export class BarcodeService {
     constructor(
       private readonly dialogService: DialogService,
       private readonly ngZone: NgZone,
+      private readonly eventsService: EventsService
     ) {}
   
     public ngOnInit(): void {
@@ -80,6 +82,10 @@ export class BarcodeService {
         const barcode: Barcode | undefined = result.data?.barcode;
         if (barcode) {
             this.barcodes = [barcode];
+            this.eventsService.publish('intent-read',{
+              type:'barcode',
+              barcode
+            })
             return barcode
         }
         return undefined
