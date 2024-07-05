@@ -23,7 +23,7 @@ export class ScanComponent {
 			video: {
 				height: { min:window.screen.height },
 				// width: { min: window.screen.width },
-				aspectRatio: 9 / 16,
+				// aspectRatio: 9 / 16,
 				facingMode: 'environment' // or "environment" for the back camera
 			},
 			audio: false
