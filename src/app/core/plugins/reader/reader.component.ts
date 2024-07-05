@@ -32,7 +32,6 @@ export class ReaderComponent  implements OnInit {
   readerInfo:string = ''
 	counter: number = 0;
 
-
   @Output() read = new EventEmitter<any>();
 
   constructor(
@@ -45,6 +44,9 @@ export class ReaderComponent  implements OnInit {
     document.addEventListener('click', () => {
       this.audioBeep.muted = false;
     });
+
+   
+   
 
     this.eventsService.subscribe('intent-read',async (read:IRead)=>{
       const value = await this.filterRepeated(read);
@@ -92,9 +94,10 @@ export class ReaderComponent  implements OnInit {
       this.icon = this.icons[value.type] || undefined
       this.lastChange = new Date().getTime()			
       this.md5Value = md5
+      return value
     })
  
-    return value
+    
   }
 
   clear(counter=0){
