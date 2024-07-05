@@ -91,6 +91,7 @@ export class ReaderComponent  implements OnInit {
   }
 
   clear(counter=0){
+    this.md5Value = undefined
     this.counter = counter
     this.raw = undefined;
     this.nfc = undefined
