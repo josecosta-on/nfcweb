@@ -47,11 +47,6 @@ export class BarcodeService {
             return
         }
 
-        const char = String.fromCharCode(e.which || e.keyCode);
-        const isAllowed = this.allowedCharsRegex.test(char);
-        console.log("e::",e,isAllowed)
-       
-
         if (e.key === 'Enter') {
           console.log(this.word)
           
@@ -62,6 +57,10 @@ export class BarcodeService {
           this.word=""
           return 
         }
+        const char = String.fromCharCode(e.which || e.keyCode);
+        const isAllowed = this.allowedCharsRegex.test(char);
+        console.log("e::",e,isAllowed)
+       
         if ( !isAllowed) {
           return
         }
