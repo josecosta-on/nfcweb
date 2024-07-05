@@ -41,6 +41,11 @@ export class ReaderComponent  implements OnInit {
   ) {
     window['reader']=this
     this.audioBeep = new Audio(this.beep)
+    this.audioBeep.muted = true;
+    document.addEventListener('click', () => {
+      this.audioBeep.muted = false;
+    });
+
     this.eventsService.subscribe('intent-read',async (read:IRead)=>{
       const value = await this.filterRepeated(read);
       this.info()
