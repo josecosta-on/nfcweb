@@ -1,4 +1,14 @@
 
-ion-icon[slot="start"]{
-    margin: 0px 8px 0px 0px;
+
+.multi-reader{
+    
+    ion-icon[slot="start"]{
+        font-size: xx-large;
+    }
+    ion-label{
+        font-size: large;
+    }
+    p{
+        font-size: medium;
+    }
 }

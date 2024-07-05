@@ -1,7 +1,7 @@
 <ion-card>
   <app-nfc></app-nfc>
   <app-reader #reader (read)="read($event)"></app-reader>
-  <ion-card-content class="ion-no-padding">
+  <ion-card-content class="ion-no-padding multi-reader">
       <ion-item button (click)="reader.clear()">
         <ion-icon name="trash" size="large" slot="end">
         </ion-icon>
@@ -10,48 +10,60 @@
           <p>Limpar leitura</p>
         </ion-label>
       </ion-item>
-      <ion-list class="ion-no-padding" lines="none">
+      <ion-list class="ion-no-padding" >
       <ion-item button (click)="scanQRCode()">
-        <ion-icon name="scan" size="large" slot="start">
+        <ion-icon name="scan"  slot="start">
         </ion-icon>
         <ion-label>
-          Código QR
+          QR
           <p >{{reader?.barcode?.value || 'Ler Código'}}</p>
         </ion-label>
       </ion-item>
-      <ion-item button (click)="scanNfc()">
-        <ion-icon name="scan" size="large" slot="start">
+      <ion-item >
+        <ion-icon name="pricetag" slot="start">
         </ion-icon>
         <ion-label>
-          Código Nfc
+          NFC
           <p>{{reader?.nfc?.value || 'Ler Código'}}</p>
         </ion-label>
       </ion-item>
-
+    
     </ion-list>
   </ion-card-content>
 </ion-card>
 
-<ion-card>
-  <ion-card-content class="ion-no-padding">
-    <ion-toolbar>
-      <ion-buttons slot="end">
-          <ion-button>
-            <ion-icon style="zoom: 1.5;" slot="icon-only" name="trash"></ion-icon>
-          </ion-button>
-      </ion-buttons>
-      <ion-title>Leitura</ion-title>
-    </ion-toolbar>
-    <ion-list class="ion-no-padding">
-      <ion-item button>
-        <ion-thumbnail slot="start">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-        </ion-thumbnail>
-        <ion-label>Item</ion-label>
+<ion-card *ngIf="reader.readerInfo">
+  <ion-card-content class="ion-no-padding multi-reader">
+      <ion-item button (click)="reader.clear()">
+        <ion-label>
+          Resultado 
+        </ion-label>
       </ion-item>
-
+      <ion-list class="ion-no-padding" >
+        <!-- <ion-item button (click)="scanQRCode()">
+          <ion-icon [name]="reader?.icon"  slot="start">
+          </ion-icon>
+          <ion-label>
+            {{reader?.raw?.value}}
+          </ion-label>
+        </ion-item> -->
+        <ion-item >
+          <ion-icon color="success" name="log-in" slot="start">
+          </ion-icon>
+          <ion-label>
+            Sucesso
+            <p>{{'Acesso permitido'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item >
+          <ion-icon color="danger" name="remove-circle" slot="start">
+          </ion-icon>
+          <ion-label>
+            Erro
+            <p>{{'Acesso negado'}}</p>
+          </ion-label>
+        </ion-item>
+  
     </ion-list>
   </ion-card-content>
 </ion-card>
-
-

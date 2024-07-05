@@ -17,8 +17,12 @@ export class ReaderComponent  implements OnInit {
   lastChange: number;
 
   private md5Value: any;
-  value: any;
-
+  raw: any;
+  icon:string|undefined = undefined
+  icons = {
+    nfc: 'pricetag',
+    barcode: 'scan'
+  }
   nfc: any;
   barcode: any;
   readerInfo:string = ''
@@ -52,7 +56,9 @@ export class ReaderComponent  implements OnInit {
     if(value && this.lastChange && this.md5Value == md5){
       const diffInSec = (new Date().getTime() - this.lastChange) / 1000;
       if (diffInSec <= 10){
-        this.counter ++
+        this.ngZone.run(()=>{
+          this.counter ++
+        })
         return
       }
     }
@@ -60,16 +66,17 @@ export class ReaderComponent  implements OnInit {
     this.lastChange = new Date().getTime()			
     this.md5Value = md5
     this.ngZone.run(()=>{
-      this.clear()
-      this.counter ++
+      this.clear(1)
+      this.raw = value
       this[value.type] = value
+      this.icon = this.icons[value.type] || undefined
     })
     return value
   }
 
-  clear(){
-    this.counter = 0
-    this.value = undefined;
+  clear(counter=0){
+    this.counter = counter
+    this.raw = undefined;
     this.nfc = undefined
     this.barcode = undefined
     this.info()

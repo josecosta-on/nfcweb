@@ -35,12 +35,10 @@ export class DashboardPage extends BasePage implements OnInit {
 
   async read(event){
     console.log(event)
-    console.log(this.reader?.value)
   }
 
   async scanQRCode(){
-    const barcode = await this.barcodeService.startScan();
-    alert(barcode?.rawValue)
+    await this.barcodeService.startScan();
 
   }
 

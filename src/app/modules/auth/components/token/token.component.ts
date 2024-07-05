@@ -1,10 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, ViewChild, ElementRef, Injector, Type, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription, Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
-import { ActivatedRoute, NavigationExtras } from '@angular/router';
-import { IonicSlides } from '@ionic/angular';
-import Swiper from 'swiper';
+import { ActivatedRoute } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { SelectComponent } from 'src/app/core/layout/components/select/select.component';
 import { BasePage } from '@app/core/layout/base/base.page';
@@ -17,9 +14,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class TokenComponent extends BasePage implements OnInit, OnDestroy {
 
-  swiperModules = [IonicSlides];
   @ViewChild('modal', { static: true }) modal!: IonModal;
-  @ViewChild('swiper') swiperRef: ElementRef | undefined;
   // KeenThemes mock, change it to:
   defaultAuth: any = {
     token: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
@@ -45,10 +40,6 @@ export class TokenComponent extends BasePage implements OnInit, OnDestroy {
     }
   ];
 
-  initSlide(){
-  
-    alert("inited")
-  }
 
   private formatData(data: string[]) {
     if (data.length === 1) {
@@ -91,15 +82,6 @@ export class TokenComponent extends BasePage implements OnInit, OnDestroy {
     if (this.authService.currentUserValue) {
       this.router.navigate(['/']);
     }
-  }
-
-  ngAfterViewInit(){
-    const swiper:Swiper = this.swiperRef?.nativeElement.swiper
-    console.log(swiper,this.swiperRef)
-    swiper.allowSlideNext = false
-    swiper.allowSlidePrev = false
-    swiper.allowTouchMove = false  
-
   }
 
   ngOnInit(): void {
@@ -167,30 +149,6 @@ export class TokenComponent extends BasePage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
-  }
-
-  onSubmit(){
-
-  }
-
-  onSlideChange(){
-
-  }
-
-  validate(){
-
-  }
-
-  doFinish(){}
-
-
-  
-
-  next(){
-    const swiper:Swiper = this.swiperRef?.nativeElement.swiper
-
-    window['swiper'] = swiper
-    swiper.slideNext()
   }
 
   async open(){

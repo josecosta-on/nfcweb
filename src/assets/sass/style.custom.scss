@@ -36,12 +36,23 @@ form.flex-box{
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    img.logo{
-        height: 30vh;
+    .logo{
+      padding: 3rem;
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      img{
         display: block;
+       
+        max-width: 300px;
+      }
+    
     }
     > swiper-container,
     > .box{
+        ion-list{
+          background:transparent
+        }
         height: 70vh;
         display: block;
         width: 100%;
@@ -68,4 +79,27 @@ form.flex-box{
     --ion-background-color: transparent;
 }
 
-  
+ion-list{
+  ion-item:last-child{
+    --inner-border-width: 0px!important;
+
+  } 
+}
+ion-item {
+  --inner-padding-start:16px;
+  --padding-start:0px;
+  &::part(detail-icon) {
+    display: none;
+  }
+
+}
+
+ion-item [slot="start"]{
+  margin: 0px 0px 0px 16px;
+  font-size: xx-large;
+}
+
+
+html{
+  font-size: 100% !important;
+}

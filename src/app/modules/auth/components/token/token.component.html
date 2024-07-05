@@ -1,77 +1,36 @@
-  <form class="flex-box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <img class="logo" src="/assets/imgs/logo.svg" alt="360 City" />
-         
-    <swiper-container #swiper  [modules]="swiperModules" (swiperinit)="initSlide()" (swiperslidechange)="onSlideChange()">
-      <swiper-slide>
-          <div class="info">
-              <ion-list class="ion-padding-horizontal" lines="none">
-                <h1>Inserir token</h1>
-                <p style="font-size: larger;">{{'Digite o token ou leia um QR Code válido'|translate}}</p>
-              
-                  <ion-item>
-                      <ion-input name="token" formControlName="token" ></ion-input>
-                  </ion-item>
-
-                  <ion-item class="item-center ion-margin-top" button>
-                    <ion-label class=" ion-text-center">
-
-                      <span style="font-size: 21px;">{{'Ler QR CODE'|translate|uppercase}}</span>
-                      <ion-icon class="ion-margin-start" style="font-size: 21px;margin-bottom: -3px;" name="scan"></ion-icon>
-                    </ion-label>
-                   
-                  </ion-item>
-                    
-              </ion-list>
-          </div>
-          <ion-footer class="ion-padding no-border" style="position: fixed;bottom:0" >
-            <ion-item class="item-center" button (click)="validateToken()">
-              <ion-label class="ion-text-center">
-                {{'Seguinte 1'|translate}}
-              </ion-label>
-            </ion-item>
-          </ion-footer>
-         
-      </swiper-slide>
-      <swiper-slide>
-              
+  <form class="flex-box" [formGroup]="loginForm">
+    <div class="logo">
+      <img src="/assets/images/logo.svg" alt="360 City" />
+    </div>
+    <div class="box">
+      <ion-list class="ion-padding-horizontal" >
         <div class="info">
-            <ion-list class="ion-padding-horizontal" lines="none">
-              <h1>{{'Definir localização'|translate}}</h1>
-              <p>{{'Definir a localização de utilização permite que posso retirar estatisticas por localização'|translate}}
-              </p>
-            
-             
-                  <ion-item button (click)="open()" >
-                    <div slot="end">{{ selectedZonesText }}</div>
-                  </ion-item>
-            </ion-list>
+            <h1>Inserir token</h1>
+            <p style="font-size: larger;">{{'Digite o token ou leia um QR Code válido'|translate}}</p>
         </div>
-        <ion-footer class="ion-padding no-border" style="position: fixed;bottom:0" >
-          <ion-item class="item-center" button (click)="next()">
-            <ion-label class="ion-text-center">
-              {{'Seguinte 2'|translate}}
-            </ion-label>
-          </ion-item>
-        </ion-footer>
-      
+        <ion-item>
+          <ion-input name="token" formControlName="token" ></ion-input>
+        </ion-item>
 
-      </swiper-slide>
-      <swiper-slide>
-        <ion-list class="ion-padding-horizontal" lines="none">
-          <div class="info">
-              <h1>{{'Concluído'|translate}}</h1>
-              <p>{{'Qualquer alteração posterior poderá ser realizada através do menu lateral'|translate}}</p>
-          </div>
-        </ion-list>
-        <ion-footer class="ion-padding no-border" style="position: fixed;bottom:0" >
-          <ion-item class="item-center" button (click)="doFinish()">
-            <ion-label class="ion-text-center">
-              {{'Concluir'|translate}}
-            </ion-label>
-          </ion-item>
-        </ion-footer>
+        <ion-item class="item-center ion-margin-top" button>
+          <ion-label class=" ion-text-center">
+
+            <span style="font-size: 21px;">{{'Ler QR CODE'|translate|uppercase}}</span>
+            <ion-icon class="ion-margin-start" style="font-size: 21px;margin-bottom: -3px;" name="scan"></ion-icon>
+          </ion-label>
+          
+        </ion-item>  
+      </ion-list>
+      <ion-footer class="ion-padding no-border" style="position: fixed;bottom:0" >
+        <ion-item class="item-center" button (click)="validateToken()">
+          <ion-label class="ion-text-center">
+            {{'Seguinte 1'|translate}}
+          </ion-label>
+        </ion-item>
+      </ion-footer>
      
-      </swiper-slide>
-    </swiper-container>
+    </div>
+          
+         
     
   </form>
