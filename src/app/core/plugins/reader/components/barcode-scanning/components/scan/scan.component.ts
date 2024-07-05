@@ -21,9 +21,9 @@ export class ScanComponent {
 	public config: ScannerQRCodeConfig = {
 		constraints: {
 			video: {
-				height: window.screen.height,
-				width: { min: window.screen.width },
-				aspectRatio: 9 / 16,
+				height: { min:window.screen.height },
+				// width: { min: window.screen.width },
+				// aspectRatio: 9 / 16,
 				facingMode: 'environment' // or "environment" for the back camera
 			},
 			audio: false
