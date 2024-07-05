@@ -31,14 +31,33 @@ export class BarcodeService {
     public isSupported = false;
     public isPermissionGranted = false;
   
-    private readonly GH_URL =
-      'https://github.com/capawesome-team/capacitor-barcode-scanning';
+   
+    word: string = '';
+    listenScan:boolean = true;
   
     constructor(
       private readonly dialogService: DialogService,
       private readonly ngZone: NgZone,
       private readonly eventsService: EventsService
-    ) {}
+    ) {
+      document.addEventListener('keyup', async(e:any) => {
+        if(!this.listenScan){
+            return
+        }
+        if (e.key === 'Enter') {
+          console.log(this.word)
+          
+          this.eventsService.publish('intent-read',{
+            type:'barcode',
+            value:this.word
+          })
+          this.word=""
+          return 
+        }
+        this.word = this.word + e.key 
+        return
+      });
+    }
   
     public ngOnInit(): void {
       BarcodeScanner.isSupported().then((result) => {
@@ -129,7 +148,5 @@ export class BarcodeService {
       await BarcodeScanner.requestPermissions();
     }
   
-    public openOnGithub(): void {
-      window.open(this.GH_URL, '_blank');
-    }
+   
 }

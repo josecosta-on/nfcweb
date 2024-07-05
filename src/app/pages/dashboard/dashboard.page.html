@@ -2,6 +2,7 @@
   <app-nfc></app-nfc>
   <app-reader #reader (read)="read($event)"></app-reader>
   <ion-card-content class="ion-no-padding multi-reader">
+     
       <ion-item button (click)="reader.clear()">
         <ion-icon name="trash" size="large" slot="end">
         </ion-icon>
