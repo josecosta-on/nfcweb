@@ -90,9 +90,10 @@ export class ReaderComponent  implements OnInit {
       this.raw = value
       this[value.type] = value
       this.icon = this.icons[value.type] || undefined
+      this.lastChange = new Date().getTime()			
+      this.md5Value = md5
     })
-    this.lastChange = new Date().getTime()			
-    this.md5Value = md5
+ 
     return value
   }
 
