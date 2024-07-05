@@ -84,7 +84,7 @@ export class BarcodeService {
             this.barcodes = [barcode];
             this.eventsService.publish('intent-read',{
               type:'barcode',
-              barcode
+              value:barcode.rawValue
             })
             return barcode
         }

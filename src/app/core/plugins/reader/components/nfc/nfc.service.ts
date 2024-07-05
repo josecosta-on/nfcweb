@@ -31,7 +31,7 @@ export class NfcService {
                 ndef.addEventListener("reading", ({ message, serialNumber }) => {
                 this.eventsServices.publish('intent-read',{
                     type:'nfc',
-                    nfc:{number:this.toHexString(serialNumber)}
+                    value:this.toHexString(serialNumber)
                 })
                 console.log(`> Serial Number: ${serialNumber}`);
                 console.log(`> Records: (${message.records.length})`);

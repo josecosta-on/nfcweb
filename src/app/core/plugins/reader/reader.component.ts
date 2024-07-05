@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, NgZone, OnInit, Output } from '@angular/core';
 import { EventsService } from '@app/services/events.service';
 import { Barcode } from '@capacitor-mlkit/barcode-scanning';
 import CryptoJS from 'crypto-js';
@@ -18,6 +18,7 @@ export class ReaderComponent  implements OnInit {
 
   private md5Value: any;
   value: any;
+
   nfc: any;
   barcode: any;
 
@@ -26,7 +27,11 @@ export class ReaderComponent  implements OnInit {
 
   @Output() read = new EventEmitter<any>();
 
-  constructor(private readonly eventsService:EventsService) {
+  constructor(
+    private readonly eventsService:EventsService,
+    private readonly ngZone:NgZone
+  ) {
+    window['reader']=this
     this.eventsService.subscribe('intent-read',async (read:IRead)=>{
       const value = await this.filterRepeated(read);
       if(value){
@@ -53,8 +58,17 @@ export class ReaderComponent  implements OnInit {
 
     this.lastChange = new Date().getTime()			
     this.md5Value = md5
-    this[value.type] = value
+    this.ngZone.run(()=>{
+      this.clear()
+      this[value.type] = value
+    })
     return value
+  }
+
+  clear(){
+    this.value = undefined;
+    this.nfc = undefined
+    this.barcode = undefined
   }
 
   ngOnInit() {
