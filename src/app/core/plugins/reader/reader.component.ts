@@ -24,8 +24,8 @@ export class ReaderComponent  implements OnInit {
   @Output() read = new EventEmitter<any>();
 
   constructor(private readonly eventsService:EventsService) {
-    this.eventsService.subscribe('intent-read',(read:IRead)=>{
-      const value = this.filterRepeated(read);
+    this.eventsService.subscribe('intent-read',async (read:IRead)=>{
+      const value = await this.filterRepeated(read);
       if(value){
         this.read.emit(value)
       }
