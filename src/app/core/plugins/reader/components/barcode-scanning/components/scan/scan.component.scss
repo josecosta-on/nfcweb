@@ -24,14 +24,9 @@
 			text-align: center;
 		}
 	}
-    .origin-video{
-    width: unset;
-    background-color: #f31414;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    vertical-align: top;
-}
+    .video-frame{
+		overflow: hidden;
+	}
 }
 
 
