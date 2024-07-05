@@ -72,6 +72,7 @@ export class ReaderComponent  implements OnInit {
     this.value = undefined;
     this.nfc = undefined
     this.barcode = undefined
+    this.info()
   }
 
   info(){
