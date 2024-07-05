@@ -10,13 +10,9 @@ declare var document
   providedIn: 'root',
 })
 export class NfcService {
-    private beep = `data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI5LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAABQAAAkAAgICAgICAgICAgICAgICAgICAgKCgoKCgoKCgoKCgoKCgoKCgoKCgwMDAwMDAwMDAwMDAwMDAwMDAwMDg4ODg4ODg4ODg4ODg4ODg4ODg4P//////////////////////////AAAAAExhdmM1OC41NAAAAAAAAAAAAAAAACQEUQAAAAAAAAJAk0uXRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+MYxAANQAbGeUEQAAHZYZ3fASqD4P5TKBgocg+Bw/8+CAYBA4XB9/4EBAEP4nB9+UOf/6gfUCAIKyjgQ/Kf//wfswAAAwQA/+MYxAYOqrbdkZGQAMA7DJLCsQxNOij///////////+tv///3RWiZGBEhsf/FO/+LoCSFs1dFVS/g8f/4Mhv0nhqAieHleLy/+MYxAYOOrbMAY2gABf/////////////////usPJ66R0wI4boY9/8jQYg//g2SPx1M0N3Z0kVJLIs///Uw4aMyvHJJYmPBYG/+MYxAgPMALBucAQAoGgaBoFQVBUFQWDv6gZBUFQVBUGgaBr5YSgqCoKhIGg7+IQVBUFQVBoGga//SsFSoKnf/iVTEFNRTMu/+MYxAYAAANIAAAAADEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV`;
-    private audioBeep:any;
+   
 
-
-    constructor(private readonly eventsServices:EventsService){
-        this.audioBeep = new Audio(this.beep);
-    }
+    constructor(private readonly eventsServices:EventsService){}
 
     async setup(){
         
@@ -32,7 +28,7 @@ export class NfcService {
                 });
             
                 ndef.addEventListener("reading", ({ message, serialNumber }) => {
-                this.audio()
+              
                 this.eventsServices.publish('intent-read',{
                     type:'nfc',
                     value:this.toHexString(serialNumber)
@@ -44,16 +40,6 @@ export class NfcService {
                 console.log("Argh! " + error);
             }
         
-    }
-
-    audio(){
-      
-       try {
-            this.audioBeep.currentTime = 0;
-            this.audioBeep.play()
-       } catch (error) {
-        
-       }
     }
    
     toHexString (str) {

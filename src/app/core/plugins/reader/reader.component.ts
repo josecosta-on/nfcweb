@@ -51,8 +51,13 @@ export class ReaderComponent  implements OnInit {
   }
 
   audio(){
-    this.audioBeep.currentTime = 0
-    this.audioBeep.play()
+    try {
+      this.audioBeep.currentTime = 0
+      this.audioBeep.play()   
+    } catch (error) {
+      
+    }
+   
   }
 
   md5OfObject(obj) {
