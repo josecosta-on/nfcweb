@@ -42,10 +42,10 @@ export class NfcService {
         
     }
    
-    async toHexString (str) {
+    toHexString (str) {
         const characters = str.split(':');
         characters.reverse();
-        const reversedString = characters.join(':');
+        const reversedString = characters.join('');
         return reversedString;
 	}
 
