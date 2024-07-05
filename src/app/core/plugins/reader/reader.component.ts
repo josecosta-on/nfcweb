@@ -21,8 +21,8 @@ export class ReaderComponent  implements OnInit {
 
   nfc: any;
   barcode: any;
-
-	counter: number = 1;
+  readerInfo:string = ''
+	counter: number = 0;
 
 
   @Output() read = new EventEmitter<any>();
@@ -34,6 +34,7 @@ export class ReaderComponent  implements OnInit {
     window['reader']=this
     this.eventsService.subscribe('intent-read',async (read:IRead)=>{
       const value = await this.filterRepeated(read);
+      this.info()
       if(value){
         this.read.emit(value)
       }
@@ -66,10 +67,14 @@ export class ReaderComponent  implements OnInit {
   }
 
   clear(){
-    this.counter = 1
+    this.counter = 0
     this.value = undefined;
     this.nfc = undefined
     this.barcode = undefined
+  }
+
+  info(){
+    this.readerInfo = this.counter ? `(${this.counter})` : ''
   }
 
   ngOnInit() {
