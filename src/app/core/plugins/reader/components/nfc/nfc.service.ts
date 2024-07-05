@@ -49,6 +49,7 @@ export class NfcService {
     audio(){
       
        try {
+            this.audioBeep.currentTime = 0;
             this.audioBeep.play()
        } catch (error) {
         
