@@ -44,6 +44,11 @@ export class BarcodeService {
       private readonly eventsService: EventsService
     ) {
       document.addEventListener('keyup', async(e:any) => {
+        const copy = {};
+        for (const key in e) {
+          const value = e[key];
+          copy[key] = typeof value === "object" ? null : value;
+        }
         if(!this.listenScan){
             return
         }
@@ -59,7 +64,7 @@ export class BarcodeService {
         }
         
        
-          console.log("e:",e, this.md5OfObject({...e}))
+          console.log("e:",e, this.md5OfObject(copy))
 
         if ( e.key.length>1) {
           return
