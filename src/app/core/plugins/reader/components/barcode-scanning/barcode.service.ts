@@ -54,12 +54,12 @@ export class BarcodeService {
         }
 
         if (e.key === 'Enter') {
-          console.log(this.word)   
-          const word = this.word.sort((a, b) => a.time - b.time);
-
+          
+          const word = this.word.sort((a, b) => a.time - b.time).join('');
+          console.log(word)   
           this.eventsService.publish('intent-read',{
             type:'barcode',
-            value:word.join()
+            value:word
           })
           this.word=[]
           return 
