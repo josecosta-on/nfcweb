@@ -43,7 +43,7 @@ export class BarcodeService {
       private readonly ngZone: NgZone,
       private readonly eventsService: EventsService
     ) {
-      document.addEventListener('keyup', async(e:any) => {
+      document.addEventListener('keydown', async(e:any) => {
         const copy = {};
         for (const key in e) {
           const value = e[key];
