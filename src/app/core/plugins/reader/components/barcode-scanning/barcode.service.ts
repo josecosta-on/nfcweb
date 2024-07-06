@@ -56,7 +56,13 @@ export class BarcodeService {
           this.word=""
           return 
         }
-        console.log("e:",e,this.compareKeyupEvents(e,this.lastEvent) )
+        if(this.lastEvent){
+          console.log("e:",e, this.compareKeyupEvents(e,this.lastEvent))
+
+        }else{
+          console.log("e:",e)
+
+        }
         if ( e.key.length>1) {
           return
         }
