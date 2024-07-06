@@ -55,14 +55,10 @@ export class BarcodeService {
           this.word=""
           return 
         }
-        const char = String.fromCharCode(e.which || e.keyCode);
-        const isAllowed = /.*/.test(char);
-        console.log("e::",e,isAllowed)
-       
-        if ( !isAllowed) {
+        if ( !/.*/.test(e.key)) {
           return
         }
-        this.word = this.word + char
+        this.word = this.word + e.key
         return
       });
     }
