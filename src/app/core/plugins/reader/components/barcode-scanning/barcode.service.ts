@@ -55,6 +55,7 @@ export class BarcodeService {
           this.word=""
           return 
         }
+        console.log("e:",e)
         if ( !/.*/.test(String.fromCharCode(e.which || e.keyCode))) {
           return
         }
