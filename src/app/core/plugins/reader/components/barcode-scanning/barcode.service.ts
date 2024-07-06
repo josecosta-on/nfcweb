@@ -36,7 +36,6 @@ export class BarcodeService {
     listenScan:boolean = true;
 
     allowedCharsRegex = /^[a-zA-Z0-9\-\._~:\/\?#\[\]@!$&'()*+,;=%!^| ]+$/;
-
   
     constructor(
       private readonly dialogService: DialogService,
