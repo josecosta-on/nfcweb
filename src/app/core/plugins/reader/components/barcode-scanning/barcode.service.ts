@@ -35,7 +35,7 @@ export class BarcodeService {
     word: string = '';
     listenScan:boolean = true;
 
-    allowedCharsRegex = /^[a-zA-Z0-9.!@#$%&'*()_+\-=\[\]{};':",./\\|<>? ]+$/;
+    allowedCharsRegex = /^[a-zA-Z0-9\-\._~:\/\?#\[\]@!$&'()*+,;=%!^| ]+$/;
 
   
     constructor(
