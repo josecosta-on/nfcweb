@@ -34,6 +34,8 @@ export class BarcodeService {
    
     word: string = '';
     listenScan:boolean = true;
+  lastKey: any;
+  lastEvent: any;
   
     constructor(
       private readonly dialogService: DialogService,
@@ -54,13 +56,25 @@ export class BarcodeService {
           this.word=""
           return 
         }
-        console.log("e:",e)
+        console.log("e:",e,this.compareKeyupEvents(e,this.lastEvent) )
         if ( e.key.length>1) {
           return
         }
+        this.lastEvent = e
         this.word = this.word + e.key
         return
       });
+    }
+
+    compareKeyupEvents(event1, event2) {
+      if (event1.key === event2.key &&
+          event1.ctrlKey === event2.ctrlKey &&
+          event1.shiftKey === event2.shiftKey &&
+          event1.altKey === event2.altKey) {
+        console.log("Same key pressed with same modifiers");
+      } else {
+        console.log("Different keys or modifiers pressed");
+      }
     }
   
     public ngOnInit(): void {
