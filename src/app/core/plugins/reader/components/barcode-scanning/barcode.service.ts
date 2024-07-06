@@ -40,7 +40,7 @@ export class BarcodeService {
       private readonly ngZone: NgZone,
       private readonly eventsService: EventsService
     ) {
-      document.addEventListener('keyup', async(e:any) => {
+      document.addEventListener('input', async(e:any) => {
         if(!this.listenScan){
             return
         }
