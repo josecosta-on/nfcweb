@@ -59,7 +59,7 @@ export class BarcodeService {
         }
         
        
-          console.log("e:",e, this.md5OfObject(e))
+          console.log("e:",e, this.md5OfObject({...e}))
 
         if ( e.key.length>1) {
           return
