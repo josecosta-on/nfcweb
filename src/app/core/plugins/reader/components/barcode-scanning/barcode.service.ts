@@ -12,6 +12,7 @@ import { FilePicker } from '@capawesome/capacitor-file-picker';
 import { BarcodeScanningModalComponent } from '@app/core/plugins/reader/components/barcode-scanning/barcode-scanning-modal.component';
 import { EventsService } from '@app/services/events.service';
 import { ScanComponent } from './components/scan/scan.component';
+import CryptoJS from 'crypto-js';
 
 
 @Injectable({
@@ -56,13 +57,10 @@ export class BarcodeService {
           this.word=""
           return 
         }
-        if(this.lastEvent){
-          console.log("e:",e, this.compareKeyupEvents(e,this.lastEvent))
+        
+       
+          console.log("e:",e, this.md5OfObject(e))
 
-        }else{
-          console.log("e:",e)
-
-        }
         if ( e.key.length>1) {
           return
         }
@@ -70,6 +68,12 @@ export class BarcodeService {
         this.word = this.word + e.key
         return
       });
+    }
+
+    md5OfObject(obj) {
+      const jsonString = JSON.stringify(obj, null, 2);  // Stringify with indentation for readability (optional)
+      const hash:string = CryptoJS.MD5(jsonString).toString();
+      return hash;
     }
 
     compareKeyupEvents(event1, event2) {
