@@ -72,6 +72,7 @@ export class BarcodeService {
 
     md5OfObject(obj) {
       const jsonString = JSON.stringify(obj, null, 2);  // Stringify with indentation for readability (optional)
+      console.log(jsonString)
       const hash:string = CryptoJS.MD5(jsonString).toString();
       return hash;
     }
