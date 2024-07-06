@@ -33,7 +33,7 @@ export class BarcodeService {
     public isPermissionGranted = false;
   
    
-    word: string = '';
+    word: any[] = [];
     listenScan:boolean = true;
   lastKey: any;
   lastEvent: any;
@@ -55,11 +55,13 @@ export class BarcodeService {
 
         if (e.key === 'Enter') {
           console.log(this.word)   
+          const word = this.word.sort((a, b) => a.time - b.time);
+
           this.eventsService.publish('intent-read',{
             type:'barcode',
-            value:this.word
+            value:word.join()
           })
-          this.word=""
+          this.word=[]
           return 
         }
         
@@ -70,7 +72,7 @@ export class BarcodeService {
           return
         }
         this.lastEvent = e
-        this.word = this.word + e.key
+        this.word.push({key:e.key,time:e.timeStamp})
         return
       });
     }
