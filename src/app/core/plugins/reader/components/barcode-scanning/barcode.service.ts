@@ -43,57 +43,14 @@ export class BarcodeService {
       private readonly ngZone: NgZone,
       private readonly eventsService: EventsService
     ) {
-      document.addEventListener('keydown', async(e:any) => {
-        const copy = {};
-        for (const key in e) {
-          const value = e[key];
-          copy[key] = typeof value === "object" ? null : value;
-        }
-        if(!this.listenScan){
-            return
-        }
-
-        if (e.key === 'Enter') {
-          
-          const word = this.word.sort((a, b) => a.time - b.time).map(e=>e.key).join('');
-          console.log(word)   
+      document.addEventListener('input', async(e:any) => {
           this.eventsService.publish('intent-read',{
             type:'barcode',
-            value:word
+            value:e.data
           })
-          this.word=[]
-          return 
-        }
-        
-       
-          console.log("e:",e, this.md5OfObject(copy))
-
-        if ( e.key.length>1) {
-          return
-        }
-        this.lastEvent = e
-        this.word.push({key:e.key,time:e.timeStamp})
-        return
       });
     }
 
-    md5OfObject(obj) {
-      const jsonString = JSON.stringify(obj, null, 2);  // Stringify with indentation for readability (optional)
-      console.log(jsonString)
-      const hash:string = CryptoJS.MD5(jsonString).toString();
-      return hash;
-    }
-
-    compareKeyupEvents(event1, event2) {
-      if (event1.key === event2.key &&
-          event1.ctrlKey === event2.ctrlKey &&
-          event1.shiftKey === event2.shiftKey &&
-          event1.altKey === event2.altKey) {
-        console.log("Same key pressed with same modifiers");
-      } else {
-        console.log("Different keys or modifiers pressed");
-      }
-    }
   
     public ngOnInit(): void {
       BarcodeScanner.isSupported().then((result) => {
