@@ -45,6 +45,7 @@ export class ReaderComponent  implements OnInit {
     this.audioBeep = new Audio(AssetsReader.beep)
     this.audioBeep.muted = true;
     document.addEventListener('click', () => {
+      console.log("audio allowed")
       this.audioBeep.muted = false;
     });
 
