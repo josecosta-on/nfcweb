@@ -35,6 +35,7 @@ export class ReaderComponent  implements OnInit {
 	counter: number = 0;
 
   @Output() read = new EventEmitter<any>();
+  forceFocus: NodeJS.Timeout;
 
   constructor(
     private readonly eventsService:EventsService,
@@ -64,6 +65,10 @@ export class ReaderComponent  implements OnInit {
     this.setup()
 	}
 
+  ngOnDestroy(): void {
+    clearInterval(this.forceFocus)
+  }
+
   public setup(){
     const newInput = document.createElement("input");
     newInput.type = "text";
@@ -91,7 +96,7 @@ export class ReaderComponent  implements OnInit {
       input.inputmode="none"
       input.autofocus="true"
       input.readOnly="readonly"
-      setInterval(()=>{
+      this.forceFocus = setInterval(()=>{
         input.focus()
       },100)
     }
