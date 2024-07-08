@@ -85,6 +85,9 @@ export class ReaderComponent  implements OnInit {
             input.removeAttribute("readOnly")
         }, 200);
       });
+      input.addEventListener("blur", () =>{
+        input.readOnly="readonly"
+      });
      
       input.style.position = 'fixed'
       input.style.top = '-200px'
