@@ -35,7 +35,7 @@ export class ReaderComponent  implements OnInit {
 	counter: number = 0;
 
   @Output() read = new EventEmitter<any>();
-  forceFocus: NodeJS.Timeout;
+  forceFocus: any;
 
   constructor(
     private readonly eventsService:EventsService,
@@ -83,14 +83,9 @@ export class ReaderComponent  implements OnInit {
         input.select(); // Select all text within the input
         setTimeout(() => {
             input.removeAttribute("readOnly")
-        }, 1000);
+        }, 200);
       });
-      input.addEventListener("blur", () =>{
-        input.readOnly="readonly"
-        setTimeout(() => {
-          input.focus()
-        }, 100);
-      });
+     
       input.style.position = 'fixed'
       input.style.top = '-200px'
       input.inputmode="none"
