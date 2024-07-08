@@ -53,10 +53,11 @@ export class ReaderComponent  implements OnInit {
    
 
     this.eventsService.subscribe('intent-read',async (read:IRead)=>{
+      this.audio()
       const value = await this.filterRepeated(read);
       this.info()
       if(value){
-        this.audio()
+        
         this.read.emit(value)
       }
     })
