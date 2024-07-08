@@ -18,6 +18,11 @@
     </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
+
+    <div class="overlay-start" [class.hidden]="!overlay" (click)="overlayHide()">
+        <div class="overlay-start-text">Clique para iniciar a leitura</div>
+       
+    </div>
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">

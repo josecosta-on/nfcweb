@@ -18,6 +18,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   private unsubscribe: Subscription[] = [];
+  overlay: boolean = true;
 
   constructor(
     private menu: MenuController,
@@ -42,6 +43,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
         this.updateProps(config);
       });
     this.unsubscribe.push(subscr);
+  }
+
+  overlayHide(){
+    this.overlay = false
   }
 
   async navigate(item){

@@ -82,7 +82,6 @@ export class ReaderComponent  implements OnInit {
     if(input){
      
       input.addEventListener("focus", () =>{
-        input.select(); // Select all text within the input
         setTimeout(() => {
             input.removeAttribute("readOnly")
         }, 200);
