@@ -60,6 +60,48 @@ export class ReaderComponent  implements OnInit {
     })
   }
 
+  ngAfterViewInit() {
+    this.setup()
+	}
+
+  public setup(){
+    const newInput = document.createElement("input");
+    newInput.type = "text";
+    newInput.placeholder = "";
+    
+    const targetElement = document.getElementsByTagName("app-reader")[0];
+    targetElement.appendChild(newInput);
+    let input:any = document.querySelector("app-reader input")
+    if(input){
+     
+      input.addEventListener("focus", () =>{
+        input.select(); // Select all text within the input
+        setTimeout(() => {
+            input.removeAttribute("readOnly")
+        }, 1000);
+      });
+      input.addEventListener("blur", () =>{
+        input.readOnly="readonly"
+        setTimeout(() => {
+          input.focus()
+        }, 100);
+      });
+      input.style.position = 'fixed'
+      input.style.top = '-200px'
+      input.inputmode="none"
+      input.autofocus="true"
+      input.readOnly="readonly"
+      setInterval(()=>{
+        input.focus()
+      },100)
+    }
+   
+    
+
+
+   
+  }
+
   audio(){
     try {
       this.audioBeep.currentTime = 0

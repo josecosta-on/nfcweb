@@ -51,7 +51,8 @@ export class BarcodeService {
       });
     }
 
-  
+   
+
     public ngOnInit(): void {
       BarcodeScanner.isSupported().then((result) => {
         this.isSupported = result.supported;
